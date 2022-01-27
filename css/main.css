@@ -1,17 +1,27 @@
+
+body{
+    background-color: black;
+}
+
+h1{
+    color: white;
+}
+
 .board{
     width: 500px;
     height: 500px;
 }
 
 td{
-    width: 500px;
-    height: 200px;
+    background-color: white;
+    width: 100px;
+    height: 100px;
     text-align: center;
 }
 
 .gameover{
     display: none;
-    width: 200px;
+    width: 600px;
     height: 200px;
     font-size: xx-large;
     background-color: black;
@@ -20,3 +30,27 @@ td{
     vertical-align: middle;
     line-height: 170px;
 }
+
+.victory{
+    display: none;
+    height: 200px;
+    width: 600px;
+    background-color: royalblue;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.emptymarked{
+    background-color: red;
+}
+.minemarked{
+    background-color: red
+}
+.emptyshown{
+    background-color: rgb(70, 65, 65);
+}
+
+
+
+
+

@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="css/main.css">
     <title>The mineSweeper</title>
 </head>
-<body onload="initGames()">
+<body onload="initGames()" oncontextmenu="return false;">
     <h1>mineSweeper</h1>
     <table border="1"  >
         <tbody border="1" class="board"></tbody>
     </table>
-    <div class="gameover" onclick="initGames()">Game Over</div>
+    <div class="gameover" onclick="initGames()" >Game Over</div>
+    <div class = "victory" onclick="initGames()">You Won!😉</div>
     <script src="js/util.js"></script>
     <!-- <script src="js/main.js"></script> -->
     <script src="js/game.js"></script>

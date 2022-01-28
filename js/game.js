@@ -206,6 +206,7 @@ function reveal(elCell, i, j) {
                 // console.log(gBoard[i][j]);
                 if (isGameOver()) {
                     time = 0
+                    clearInterval(intervalIdTime)
                     // elTimer.innerText = 0
                     var elModal = document.querySelector(".victory")
                     elModal.style.display = 'block'
@@ -235,6 +236,7 @@ function cellMarked(elCell, i, j) {
     if (isGameOver()) {
         time = 0
         // elTimer.innerText = 0
+        clearInterval(intervalIdTime)
         var elModal = document.querySelector(".victory")
         elModal.style.display = 'block'
         gGame.isOn = false

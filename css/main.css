@@ -1,6 +1,6 @@
 
 body{
-    background-color: black;
+    background-color: #cccccc;
 }
 
 
@@ -9,14 +9,13 @@ h1{
     text-align: center;
 }
 
-.divoftable{
-    display: block;
-    margin: 10px auto;
+table{
+    margin: auto;
+    width: 900px;
+    height: 600px;
 }
 
-tbody{
-    margin: auto;
-}
+
 
 .board{
     width: 500px;

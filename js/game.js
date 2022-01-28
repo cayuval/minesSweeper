@@ -24,25 +24,31 @@ var intervalIdTime;
 function easyLevel() {
     gLevel.SIZE = 4
     gLevel.MINES = 2
+    clearInterval(intervalIdTime)
+    time = 0
     initGames()
 }
 function hardLevel() {
     gLevel.SIZE = 8
     gLevel.MINES = 12
+    clearInterval(intervalIdTime)
+    time = 0
     initGames()
 }
 function expertLevel() {
     gLevel.SIZE = 12
     gLevel.MINES = 30
+    clearInterval(intervalIdTime)
+    time = 0
     initGames()
 }
 
 function initGames() {
     gGame.shownCount = 0
     gGame.isOn = true
+    clearInterval(intervalIdTime)
     time = 0
     elTimer.innerText = 0
-    intervalIdTime = setInterval(startCounter,1500)
     gBoard = buildBoard();
     placeCells(gBoard)
     placeBomb(gBoard, gLevel.MINES)
@@ -56,10 +62,6 @@ function initGames() {
 }
 
 
-function startCounter(){
-    time++
-    elTimer.innerText = time
-}
 
 function buildBoard() {
     var mat = []
@@ -90,28 +92,7 @@ function placeCells(board) {
     return board
 }
 
-// function placeBomb(board,MINES) {
-//     if(MINES===2){
-//     var randomNum = getRandomInt(0, board.length - 1)
-//     console.log(randomNum);
-//     for (var i = 0; i < board.length; i++) {
-//         for (var j = 0; j < board[0].length; j++) {
-//             // console.log('hi');
-//             console.log();
-//             board[randomNum][2].isMine = true
-//             board[1][randomNum].isMine = true
-//             // console.log(board[2][3]);
-//         }
-//     }
-//     return board
-// }
-// if(MINES===12){
 
-// }
-// if(MINES===30){
-
-// }
-// }
 
 function placeBomb(board, MINES) {
     for (var x = 0; x < MINES;) {
@@ -204,17 +185,19 @@ function reveal(elCell, i, j) {
 
             if (elCell.classList.contains('mine') || elCell.classList.contains('minemarked')) {
                 gGame.shownCount++
+                // if(gGame.shownCount===1){intervalIdTime =  setInterval(startCounter,1000)}
                 console.log(gGame.shownCount);
                 gBoard[i][j].isShown = true
                 gBoard = showMines(gBoard)
                 renderBoard(gBoard)
-                clearInterval(intervalIdTime)
                 time = 0
                 // elTimer.innerText = 0
                 gameOver()
+                clearInterval(intervalIdTime)
                 gGame.isOn = false
             } else {
                 gGame.shownCount++
+                if (gGame.shownCount === 1) { intervalIdTime = setInterval(startCounter, 1000) }
                 gBoard[i][j].isShown = true
                 if (gBoard[i][j].minesAroundCount === 0 && gBoard[i][j].isMine === false) {
                     gBoard = setNegsShow(gBoard, i, j)
@@ -222,7 +205,6 @@ function reveal(elCell, i, j) {
                 renderBoard(gBoard)
                 // console.log(gBoard[i][j]);
                 if (isGameOver()) {
-                    clearInterval(intervalIdTime)
                     time = 0
                     // elTimer.innerText = 0
                     var elModal = document.querySelector(".victory")
@@ -251,7 +233,6 @@ function cellMarked(elCell, i, j) {
         console.log(currCell);
     }
     if (isGameOver()) {
-        clearInterval(intervalIdTime)
         time = 0
         // elTimer.innerText = 0
         var elModal = document.querySelector(".victory")
@@ -260,6 +241,10 @@ function cellMarked(elCell, i, j) {
     }
 }
 
+function startCounter() {
+    time++
+    elTimer.innerText = time
+}
 
 function gameOver() {
     var elModal = document.querySelector(".gameover")

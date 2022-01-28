@@ -1,6 +1,6 @@
 
 body{
-    background-image: url("/img/Mines1.jpg");
+    background-image: url("Mines1.jpg");
     background-color: #cccccc;
     background-size: cover;
     /* mask-repeat: no-repeat; */

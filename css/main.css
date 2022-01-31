@@ -75,6 +75,10 @@ button{
     height: 100px;
 }
 
+.medioum{
+    background-color: rgb(141, 141, 57);
+}
+
 .hard{
     background-color: red;
 }

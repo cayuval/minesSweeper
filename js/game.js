@@ -28,6 +28,13 @@ function easyLevel() {
     time = 0
     initGames()
 }
+function medioumLevel() {
+    gLevel.SIZE = 6
+    gLevel.MINES = 8
+    clearInterval(intervalIdTime)
+    time = 0
+    initGames()
+}
 function hardLevel() {
     gLevel.SIZE = 8
     gLevel.MINES = 12

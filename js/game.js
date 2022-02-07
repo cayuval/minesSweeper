@@ -158,8 +158,8 @@ function renderBoard(board) {
 
 
 
-            if (currCell.isMarked === true) cellClass += 'marked'
-            else if (currCell.isShown === true && currCell.isMine === false && currCell.minesAroundCount === 0) {
+            // if (currCell.isMarked === true) cellClass += 'marked'
+            if (currCell.isShown === true && currCell.isMine === false && currCell.minesAroundCount === 0) {
                 cellClass += 'shown'
             }
             strHTML += `\t<td class="${cellClass}
@@ -169,6 +169,8 @@ function renderBoard(board) {
                 strHTML += Mine
             } else if (currCell.isShown === true && currCell.isMine === false && currCell.minesAroundCount > 0) {
                 strHTML += currCell.minesAroundCount
+            } else if (currCell.isMarked === true) {
+                strHTML += '🚩'
             }
 
             strHTML += '\t</td>\n';

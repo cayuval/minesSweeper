@@ -316,6 +316,13 @@ function showMines(board) {
     return board
 }
 
+function handleKey(ev) {
+    console.log(ev.key);
+    if(ev.key === 'Enter'){
+        initGames()
+    }
+}
+
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
